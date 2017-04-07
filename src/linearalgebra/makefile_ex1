@@ -1,0 +1,44 @@
+CC			 ?= gcc
+CXX			?= g++
+
+CFLAGS	 ?= -Wall -O2 -fPIC -stdlib=libc++
+CXXFLAGS ?= -Wall -O2 -fPIC -stdlib=libc++
+LDFLAGS	?= -Wall -O2 -fPIC -stdlib=libc++ -Wl,--no-undefined
+
+SOURCES = \
+	test.cpp
+
+CSOURCES =
+
+OBJECTS = $(SOURCES:.cpp=.o)
+COBJECTS = $(CSOURCES:.c=.o)
+
+static: asyncified.a
+
+asyncified.a: $(COBJECTS) $(OBJECTS)
+	$(AR) rcvs $@ $(COBJECTS) $(OBJECTS)
+
+js-debug: static
+	emcc asyncified.a -o asyncified.js \
+		-O0 \
+		-s EXPORTED_FUNCTIONS="['_asyncified_method']" \
+		-s DISABLE_EXCEPTION_CATCHING=0 \
+		-s ALLOW_MEMORY_GROWTH=1 \
+		-s EMTERPRETIFY=1 \
+		-s EMTERPRETIFY_ASYNC=1 \
+		-s EMTERPRETIFY_WHITELIST=@whitelist.json \
+		-s ASSERTIONS=1 \
+		-s SAFE_HEAP=1 \
+		-s DEMANGLE_SUPPORT=1 \
+		--profiling-funcs \
+		--minify 0 \
+		--memory-init-file 1
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+%: %.o static
+	$(CXX) $(CXXFLAGS) -o $@ $+ $(LDFLAGS) $(LDLIBS)

@@ -1,0 +1,41 @@
+
+@baseColor: hsl(230, 20%, 30%);
+@baseBgColor: hsl(230, 10%, 80%);
+
+.test {
+    font-family: Tahoma;
+    .header {
+        padding: 10px;
+        min-height: 60px;
+        color: @baseColor;
+        background-color: @baseBgColor;
+    }
+
+    .content {
+        padding: 10px;
+        color: @baseColor;
+        background-color: @baseBgColor;
+        border-top: 1px solid green;
+        border-bottom: 1px solid green;
+
+        .a11yTree {
+            display: inline-block;
+            border: 1px solid tomato;
+            height: 300px;
+            width: 250px;
+        }
+
+        input {
+            display: block;
+            width: auto;
+        }
+    }
+
+    .footer {
+        padding: 10px;
+        height: 60px;
+        color: @baseColor;
+        background-color: @baseBgColor;
+    }
+
+}

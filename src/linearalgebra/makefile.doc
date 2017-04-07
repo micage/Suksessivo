@@ -1,0 +1,15 @@
+# Include search pathes:
+#	/usr/local/Cellar/gsl/1.16/include
+#			/Users/mmm3/Developer/Libs/emsdk/emscripten/1.29.0/system/include
+#			./.
+
+#emcc --bind -O1 -I. vector.cpp -o ./temp/vector.bc
+
+#	Compile all *.bc and build test.js (parameter bind is for using embind):
+#emcc --bind -O1 ./temp/vector.bc -o ./build/vector.js
+
+# Presumably we have to take care for all sources having the same optimization level.
+# -s NO_EXIT_RUNTIME=1
+
+linearalgebra: vector.cpp matrix.cpp
+    emcc --bind -I. vector.cpp -o ./temp/vector.bc

@@ -1,0 +1,30 @@
+
+@bar-bg-color: hsl(230, 5%, 95%);
+@view-bg-color: hsl(130, 5%, 95%);
+@tab-bar-height: 40px;
+
+.tab-box {
+    .tab-bar {
+        background-color: @bar-bg-color;
+        width: 100%;
+        height: @tab-bar-height;
+        ul.tabs {
+            list-style-type: none;
+            li {
+                height: @tab-bar-height;
+                width: 10%;
+                min-width: 50px;
+            }
+        }
+    }
+
+    .tab-view {
+        background-color: @view-bg-color;
+    }
+}
+
+.tab-box::after {
+    content: '';
+    display: block;
+    clear: both;
+}

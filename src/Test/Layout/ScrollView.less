@@ -1,0 +1,80 @@
+@pane-bg-color: #dde;
+@ctl_bg_color: rgb(220, 220, 220);
+@ctl_color: rgb(200, 150, 100);
+@hbar-color: rgb(100, 100, 100);
+@vbar-color: rgb(100, 100, 100);
+@h1-color: rgb(200, 200, 200);
+@h2-color: rgb(200, 200, 200);
+@v1-color: rgb(200, 200, 200);
+@v2-color: rgb(200, 200, 200);
+@min: 8px;
+@pct: 100%;
+@h-cursor: 'pointer'; //ew-resize;
+@v-cursor: 'pointer'; //ns-resize;
+
+#content {
+
+}
+.scrollView {
+    background-color: @pane-bg-color;
+    width: 300px;
+    height: 300px;
+    position: relative;
+
+    .frame {
+        width: @pct;
+        height: @pct;
+        overflow: hidden;
+        .view {
+            //background-image: url('../Layout/color-wheel.svg'); // "../parent-Dir" hack !!! But it works ... for now
+            //background-size: contain;
+            display: inline-block;
+            background-color: #eee;
+        }
+    }
+    .v .bar:active, .h .bar:active, .v .bar:hover, .h .bar:hover {
+        background-color: white;
+    }
+    .v {
+        width: @min;
+        height: 100%;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        .one {
+            background-color: @v1-color;
+        }
+        .bar {
+            cursor: @v-cursor;
+            background-color: @vbar-color;
+        }
+        .two {
+            background-color: @v2-color;
+        }
+    }
+    .h {
+        position: absolute;
+        width: @pct;
+        height: @min;
+        left: 0px;
+        bottom: 0px;
+        .one {
+            background-color: @h1-color;
+        }
+        .bar {
+            cursor: @h-cursor;
+            background-color: @hbar-color;
+        }
+        .two {
+            background-color: @h2-color;
+        }
+    }
+    .corner {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        width: @min;
+        height: @min;
+        background-color: @ctl_bg_color;
+    }
+}

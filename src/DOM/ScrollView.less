@@ -1,0 +1,98 @@
+@pane-bg-color: #dde;
+@ctl_bg_color: rgb(220, 220, 220);
+@ctl_color: rgb(200, 150, 100);
+@hbar-color: rgb(100, 100, 100);
+@vbar-color: rgb(100, 100, 100);
+@h1-color: #eee;
+@h2-color: rgb(200, 200, 200);
+@v1-color: #eee;
+@v2-color: rgb(200, 200, 200);
+@min: 8px;
+@pct: 100%;
+@h-cursor: 'pointer'; //ew-resize;
+@v-cursor: 'pointer'; //ns-resize;
+
+.scrollView {
+    background-color: @pane-bg-color;
+    position: relative;
+    // min-width: 150px;
+    // min-height: 100px;
+    box-sizing: content-box;
+
+    .frame {
+        // width: @pct;
+        // height: @pct;
+        width: inherit;
+        height: inherit;
+        // float: left;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        overflow: hidden;
+        // margin-bottom: -@min;
+        .view {
+            //background-image: url('../Layout/color-wheel.svg'); // "../parent-Dir" hack !!! But it works ... for now
+            //background-size: contain;
+            display: inline-block;
+            background-color: #fff;
+            overflow: visible;
+        }
+    }
+
+    :global(.one), :global(.two) {
+        visibility: hidden;
+    }
+
+    :global(.bar) {
+        border-radius: @min;
+        background-color: #bbb;
+    }
+
+    :global(.bar:hover) {
+        background-color: #777;
+    }
+
+    .v {
+        // float: right;
+        width: @min;
+        height: inherit;
+        // margin-bottom: -@min;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        background-color: @v1-color;
+        :global(.bar) {
+            height: 30px !important;
+            cursor: ns-resize;
+        }
+    }
+    .h {
+        // float: left;
+        width: inherit;
+        height: @min;
+        // margin-top: -@min;
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        background-color: @v1-color;
+        :global(.bar) {
+            width: 30px !important;
+            cursor: ew-resize;
+        }
+    }
+    .corner {
+        // float: right;
+        width: @min;
+        height: @min;
+        // margin-top: -@min;
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        // background-color: @ctl_bg_color;
+        opacity: 0;
+    }
+}
+.scrollView:after {
+    content: ' ';
+    clear: both;
+}

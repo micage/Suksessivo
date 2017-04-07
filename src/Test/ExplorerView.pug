@@ -1,0 +1,26 @@
+div(id=viewId).test
+    .header
+        h3 #{testName}
+        p #{data}
+
+    .content
+        .mmm-explorer
+            .title= title
+            .button-bar
+                input(type='text')
+                span.space20 Type:
+                select
+                    option(value='object' selected)= 'object'
+                    option(value='array')= 'array'
+                a.button#create= 'create'
+                a.button#remove= 'remove'
+                a.button#copy= 'copy'
+                a.button#paste= 'paste'
+                a.button#rename= 'rename'
+                a.button#find= 'find'
+            .body
+                .mmm-treeview
+                .mmm-listview
+            .caption
+
+    //- .footer

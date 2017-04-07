@@ -1,0 +1,61 @@
+@labelColor: #222;
+@labelBgColor: #ddd;
+@labelColorSelected: hsl(30, 70%, 40%);
+@labelBgColorSelected: #ddd;
+
+:global {
+    li.drag-image {
+        list-style-type: none;
+        i {
+            margin-right: 4px;
+            min-width: 16px;
+        }
+        i.fa.drag-ok {
+            color: green;
+        }
+        i.fa.drag-notok {
+            color: red;
+        }
+        span {
+            background-color: inherit;
+        }
+    }
+
+    .mmm-treeview {
+        cursor: default;
+        ul {
+            list-style-type: none;
+        }
+        li {
+            i.fa {
+                float: left;
+                padding-right: 8px;
+                // padding: 2px;
+                min-width: 10px;
+                text-align: center;
+            }
+        }
+
+        .not-visible {
+            display: none;
+        }
+        .over {
+            border: 1px dotted black;
+        }
+        .over-item {
+            background-color: rgb(200, 200, 220);
+        }
+        .tree-node-label {
+            display: block;
+            i.fa {
+                background-color: inherit;
+            }
+        }
+        .tree-node-label:hover {
+            background-color: inherit;
+        }
+        .tree-node-label.selected {
+            background-color: inherit;
+        }
+    }
+}

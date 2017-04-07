@@ -1,0 +1,46 @@
+@ctl_bg_color: rgb(220, 220, 220);
+@ctl_color: rgb(200, 150, 100);
+
+#ScrollBar {
+    .content {
+        height: 400px;
+        .one, .two {
+            background-color: @ctl_bg_color;
+        }
+        .frame {
+            width: 98%;
+            height: 98%;
+            float: left;
+            background-color: green;
+            overflow: hidden;
+            .view {
+                width: 2000px;
+                height: 2000px;
+            }
+        }
+        .scrollV {
+            min-width: 8px;
+            height: 98%;
+            float: left;
+            .bar {
+                cursor: ns-resize;
+                background-color: @ctl_color;
+            }
+        }
+        .scrollH {
+            width: 98%;
+            min-height: 8px;
+            float: left;
+            .bar {
+                cursor: ew-resize;
+                background-color: @ctl_color;
+            }
+        }
+        .corner {
+            float: left;
+            min-width: 8px;
+            min-height: 8px;
+            background-color: @ctl_bg_color;
+        }
+    }
+}

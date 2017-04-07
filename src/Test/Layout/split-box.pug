@@ -1,0 +1,21 @@
+mixin split-box(_id)
+    .split-box(id=_id)
+        .one
+        .two
+
+mixin slider(id)
+    .slider(id=id)
+        .label #{id}
+        +split-box
+        input.val
+
+mixin scroll-pane(_id)
+    .scroll-pane(id=_id)
+        .frame
+            .view
+        .scroll.v
+            .one
+            .two
+        .scroll.h
+            .one
+            .two

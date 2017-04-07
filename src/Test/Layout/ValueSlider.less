@@ -1,0 +1,43 @@
+
+:local {
+    .ValueSlider {
+        padding: 20px;
+        .content {
+            .slider {
+                margin: 4px 0px;
+                height: 19px;
+                .label {
+                    display: inline-block;
+                    width: 100px;
+                }
+                .OneTwoBar {
+                    display: inline-block;
+                    width: 400px;
+                    height: 100%;
+                    > * {
+                        height: 100%;
+                        overflow: hidden;
+                    }
+                    .one {
+                        background-color: lightgreen;
+                    }
+                    .two {
+                        background-color: lightblue;
+                    }
+                    .bar {
+                        background-color: tomato;
+                        cursor: ew-resize;
+                    }
+                }
+                .val {
+                    height: 16px;
+                    position: relative;
+                    top: -6px;
+                    margin-left: 10px;
+                    width: 40px;
+                    text-align: right;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,110 @@
+
+
+@baseColor: hsl(230, 20%, 20%);
+@baseBgColor: hsl(230, 0%, 98%);
+@control-bg-color: hsl(230, 10%, 95%);
+@control-border-color: hsl(230, 0%, 80%);
+
+:global {
+    .test {
+        width: 600px;
+        margin: auto;
+        color: @baseColor;
+        background-color: @baseBgColor;
+        font-family: Verdana;
+
+        .header {
+            padding: 10px;
+            height: 60px;
+        }
+
+        .content {
+            .mmm-explorer {
+                width: 600px;
+                height: 350px;
+                > * {
+                    border-bottom-style: solid;
+                    border-bottom-color: @control-border-color;
+                }
+                .title {
+                    height: 20px;
+                    padding: 4px;
+                    font-weight: bold;
+                }
+                .button-bar {
+                    height: 22px;
+                    padding: 4px;
+                    > * {
+                        margin-left: 2px;
+                        margin-right: 2px;
+                    }
+                    .space20 {
+                        margin-left: 20px;
+                    }
+                    input {
+                        width: 100px;
+                        height: 16px;
+                    }
+                    select {
+                        width: 70px;
+                    }
+                    a.button {
+                        width: 46px;
+                        height: 18px;
+                        cursor: pointer;
+                        float: right;
+                        padding: 2px;
+                        background-color: @control-bg-color;
+                        border-width: thin;
+                        border-color: @control-border-color;
+                        border-style: solid;
+                        border-radius: 3px;
+                        font-size: 8pt;
+                    }
+                }
+                .body {
+                    width: 100%;
+                    height: 250px;
+                    > * {
+                        height: 100%;
+                        display: inline-block;
+                    }
+                    .mmm-treeview {
+                        background-color: @baseBgColor;
+                        li  {
+                            height: initial;
+                        }
+                        // float: left;
+                        // width: 200px;
+                        overflow-x: hidden;
+                        overflow-y: auto;
+                        .selected {
+                            font-weight: bold;
+                            // text-decoration: underline;
+                        }
+                        // width: 100%;
+                    }
+                    .bar {
+                        background-color: @control-border-color;
+                        cursor: ew-resize;
+                    }
+                    .mmm-listview {
+                        // float: right;
+                        // width: auto;
+                        background-color: @baseBgColor;
+                    }
+                }
+                .caption {
+                    clear: left;
+                    height: 20px;
+                    background-color: hsl(230, 0%, 98%);
+                }
+            }
+        }
+
+        .footer {
+            padding: 10px;
+            height: 60px;
+        }
+    }
+}
