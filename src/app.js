@@ -1,7 +1,7 @@
 import importedValue from "./app1/test";
 import styles from "./app.less"; // css
 
-// here starts the app
+// the app starts here
 // output is visible in the browsers console
 console.log("Yoo, I'm in!");
 
