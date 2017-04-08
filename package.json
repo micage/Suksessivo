@@ -1,6 +1,6 @@
 {
   "author": {
-    "name": "Suksessivo"
+    "name": "Michael Gehricke"
   },
   "dependencies": {},
   "description": "",
@@ -19,22 +19,18 @@
   "directories": {},
   "keywords": [],
   "license": "MIT",
-  "main": "./src/index.js",
-  "name": "react-cordova-test-1",
+  "main": "./src/app.js",
+  "name": "suksessivo",
   "optionalDependencies": {},
-  "private": true,
+  "private": false,
   "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
-    "url": "git://github.com/micage/__no_repository.git"
+    "url": "git://github.com/micage/suksessivo.git"
   },
   "scripts": {
-    "and": "webpack --config webpack-pro.config.js --progress --colors -p && cordova run android",
     "dev": "webpack-dev-server --config webpack-dev.config.js --progress --colors --define process.env.NODE_ENV='development'",
-    "dev2": "webpack-dev-server --config webpack-dev2.config.js --progress --colors --define process.env.NODE_ENV='development'",
-    "ios": "webpack --config webpack-pro.config.js --progress --colors -p && cordova run ios",
-    "pro": "webpack --config webpack-pro.config.js --progress --colors -p --define process.env.NODE_ENV='production'",
-    "start": "webpack-dev-server --config webpack-dev.config.js --progress --colors"
+    "pro": "webpack --config webpack-pro.config.js --progress --colors -p --define process.env.NODE_ENV='production'"
   },
   "version": "1.0.4"
 }
