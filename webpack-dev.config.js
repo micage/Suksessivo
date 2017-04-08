@@ -1,13 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
-const buildPath = path.resolve(__dirname, '');
-
-process.env.DEBUG = true;
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: [
-        './app.js'
-    ],
+    entry: './app.js',
     context: path.join(__dirname, 'src'),
     devServer: {
         contentBase: 'www', // Relative directory for base of server
@@ -15,21 +11,24 @@ module.exports = {
         hot: true, // Live-reload
         hotOnly: true,
         inline: true,
-        // noInfo: true,
         port: 2010, // Port Number
     },
     devtool: 'source-map',
     output: {
-        path: buildPath, // Path of output file
+        path: path.resolve(__dirname, 'www'), // Path of output file
         filename: 'bundle.js',
     },
     resolve: {
-        extensions: ['.jsx', '.js']
+        extensions: ['.js']
     },
 
     plugins: [
         // Enables Hot Modules Replacement
         new webpack.HotModuleReplacementPlugin(),
+
+        new HtmlWebpackPlugin({
+            title: 'Suksessivo'
+        }),
 
         // Allows error warnings but does not stop compiling.
         // new webpack.NoEmitOnErrorsPlugin(),
@@ -41,7 +40,6 @@ module.exports = {
         }),
 
         new webpack.DefinePlugin({
-            // __DEBUG__: JSON.stringify(JSON.parse(process.env.DEBUG)),
             __DEBUG__: true,
             "process.env": {
                 NODE_ENV: JSON.stringify("development")
@@ -49,7 +47,6 @@ module.exports = {
         }),
 
         new webpack.NamedModulesPlugin()
-
     ],
     module: {
         rules: [
