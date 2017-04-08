@@ -11,7 +11,7 @@ module.exports = {
     context: path.join(__dirname, 'src'),
     devServer: {
         contentBase: 'www', // Relative directory for base of server
-        host: '0.0.0.0', // Change to '0.0.0.0' for external facing server
+        host: 'localhost', // Change to '0.0.0.0' for external facing server
         hot: true, // Live-reload
         hotOnly: true,
         inline: true,
