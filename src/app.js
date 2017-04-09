@@ -42,12 +42,12 @@ img.onload = (ev) => { // waits for finishing the load operation
     ctx.drawImage(
         img,
         0, 0, img.width, img.height,                    // original image dimensions
-        (canvas.width - img.width / 8) / 2,             // offset x
-        (canvas.height - img.height / 8) / 2 + 100,     // offset y
-        img.width/8, img.height/8,                      // target dimensions
+        (canvas.width - img.width / 2) / 2,             // offset x
+        (canvas.height - img.height / 2) / 2 + 100,     // offset y
+        img.width/2, img.height/2,                      // target dimensions
     );    
 };
-img.src = "./assets/Earth.png";
+img.src = "./assets/Earth_mini.png";
 
 
 // Listen for hot replacement, only for development
