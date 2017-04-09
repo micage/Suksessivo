@@ -3,7 +3,7 @@
     "name": "Michael Gehricke"
   },
   "dependencies": {},
-  "description": "",
+  "description": "Boilerplate for vscode, babel, webpack",
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-eslint": "^7.1.1",
