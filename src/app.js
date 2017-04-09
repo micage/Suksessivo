@@ -8,46 +8,50 @@ import styles from "./app.less"; // css
 console.log("Yoo, I'm in!");
 console.log("The imported value is: " + importedValue);
 
-
-
 // put some stuff into the DOM (the web page), in this case a canvas
 let canvas = document.createElement('canvas');
 let ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
 document.body.appendChild(canvas); // not to forget
-
-ctx.fillStyle = '#ccc'; // a light grey
-ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-// render some text onto the canvas
-let text = "Hallo Welt";
-let fontHeight = 120;
-ctx.font = fontHeight + "px serif";
-ctx.lineWidth = 4;
-let metrics = ctx.measureText(text); // get width of text
-let p =  { // centered position
-    x: (canvas.width - metrics.width) / 2,
-    y: (canvas.height) / 2
-};
-ctx.strokeStyle = "#533";
-ctx.strokeText(text, p.x, p.y);
-ctx.fillStyle = '#fd2'; // teal color
-ctx.fillText(text, p.x, p.y);
 
 // load an image from ./assets and draw it below the text
 let img = new Image();
 img.onload = (ev) => { // waits for finishing the load operation
     console.log('Image loaded.');
+    window.dispatchEvent(new Event('resize')); // call onresize via event emitting
+};
+img.src = "./assets/Earth_mini.png";
+
+// put the drawing stuff into resize function to react on window size changes
+onresize = function() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    ctx.fillStyle = '#ddd'; // a light grey
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // render some text onto the canvas
+    let text = "Hallo Welt";
+    let fontHeight = 100;
+    ctx.font = fontHeight + "px serif";
+    ctx.lineWidth = 4;
+    let metrics = ctx.measureText(text); // get width of text
+    let p = { // centered position
+        x: (canvas.width - metrics.width) / 2,
+        y: (canvas.height) / 2
+    };
+    ctx.strokeStyle = "#533";
+    ctx.strokeText(text, p.x, p.y);
+    ctx.fillStyle = '#fd2'; // teal color
+    ctx.fillText(text, p.x, p.y);
+
     ctx.drawImage(
         img,
         0, 0, img.width, img.height,                    // original image dimensions
         (canvas.width - img.width / 2) / 2,             // offset x
         (canvas.height - img.height / 2) / 2 + 100,     // offset y
-        img.width/2, img.height/2,                      // target dimensions
-    );    
+        img.width / 2, img.height / 2,                      // target dimensions
+    );
 };
-img.src = "./assets/Earth_mini.png";
 
 
 // Listen for hot replacement, only for development
