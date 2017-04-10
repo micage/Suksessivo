@@ -30,26 +30,26 @@ onresize = function() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // render some text onto the canvas
-    let text = "Hallo Welt";
+    let text = "Hallo Erde";
     let fontHeight = 100;
     ctx.font = fontHeight + "px serif";
     ctx.lineWidth = 4;
     let metrics = ctx.measureText(text); // get width of text
-    let p = { // centered position
+    let pos = { // centered position
         x: (canvas.width - metrics.width) / 2,
         y: (canvas.height) / 2
     };
-    ctx.strokeStyle = "#533";
-    ctx.strokeText(text, p.x, p.y);
-    ctx.fillStyle = '#fd2'; // teal color
-    ctx.fillText(text, p.x, p.y);
+    ctx.strokeStyle = "#533";       // reddish grey
+    ctx.strokeText(text, pos.x, pos.y); // draw text border
+    ctx.fillStyle = '#fd2';         // fat yellow
+    ctx.fillText(text, pos.x, pos.y);   // fill with color
 
     ctx.drawImage(
         img,
         0, 0, img.width, img.height,                    // original image dimensions
         (canvas.width - img.width / 2) / 2,             // offset x
         (canvas.height - img.height / 2) / 2 + 100,     // offset y
-        img.width / 2, img.height / 2,                      // target dimensions
+        img.width / 2, img.height / 2,                  // target dimensions
     );
 };
 
@@ -62,7 +62,7 @@ onresize = function() {
 if (module.hot) {
     module.hot.accept();
     module.hot.dispose(function () {
-        // undo changes you made to the DOM
+        // undo changes made to the DOM
         canvas.remove();
     });
 }

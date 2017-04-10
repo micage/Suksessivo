@@ -1,5 +1,0 @@
-This file exists because I haven't been able to add the empty www folder to the git index.
-Which is quite annoying. Who decided that I can not have an empty folder in my project even 
-if it's necessary? 
-What if I need a specific directory structure to be commmitted?
-soab.
