@@ -10,6 +10,16 @@
         {
             "type": "chrome",
             "request": "launch",
+            "name": "Launch Chrome Canary",
+            "url": "http://localhost:2010",
+            "webRoot": "${workspaceRoot}/src",
+            "osx": {
+                "runtimeExecutable": "/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
+            }
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
             "name": "Launch Chrome",
             "url": "http://localhost:2010",
             "webRoot": "${workspaceRoot}/src"
